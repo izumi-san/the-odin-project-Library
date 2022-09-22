@@ -3,7 +3,7 @@ Let's create a small Library app.
 All the books are going to be stored in a simple array:
     Add a function to the script that can take user's input and store the new book object into the array.
 
-Write a function that loops through the array and display each book on the page. You can display them in some sort of table, or each on theii own card. It might  help for now to manually add a few books to your array so you can see the display.
+Write a function that loops through the array and display each book on the page. You can display them in some sort of table, or each on their own card. It might  help for now to manually add a few books to your array so you can see the display.
 
 Add a "NEW BOOK" button that brings up a form allowing users to input the detail for the new book: author, title, number of pages, whether it's been read and anything else you might want.
 
