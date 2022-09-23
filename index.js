@@ -1,11 +1,12 @@
 const myLibrary = [
   { name: 'The will to change', author: 'Bell Hooks', pages: 208, read: true },
+  { name: 'TCC', author: 'Amigão', pages: 28, read: true },
+  { name: 'Fonte', author: 'DATA Claudio  Ulisses', pages: -208, read: true },
 ];
 
 const table = document.querySelector('#books-table');
 
 function Book(name, author, pages, read) {
-  //the contructor;
   this.name = name;
   this.author = author;
   this.pages = pages;
@@ -19,17 +20,21 @@ function renderTable() {
 }
 
 function addNewRow(book, index) {
-  const tr = formatTr(book);
+  const tr = formatTr(book, index);
   tr.setAttribute('id', index);
   table.appendChild(tr);
 }
 
-function formatTr(book) {
+function formatTr(book, index) {
   const tableRow = document.createElement('tr');
   for (item in book) {
     const td = formatTd(book[item]);
     tableRow.appendChild(td);
   }
+  const tdDeletBtn = createDeleteButton(index);
+
+  tableRow.append(tdDeletBtn);
+
   return tableRow;
 }
 function formatTd(text) {
@@ -38,6 +43,33 @@ function formatTd(text) {
   tableData.appendChild(content);
 
   return tableData;
+}
+
+function createDeleteButton(index) {
+  const tableData = document.createElement('td');
+  const btn = document.createElement('button');
+  const btnMsg = document.createTextNode('Delete');
+  btn.appendChild(btnMsg);
+  btn.setAttribute('class', 'btn-delete');
+  btn.setAttribute('data-book-id', index);
+  btn.onclick = removeBookById;
+  tableData.appendChild(btn);
+
+  return tableData;
+}
+
+function removeBookById(e) {
+  const bookId = e.target.dataset.bookId;
+
+  myLibrary.splice(bookId, 1);
+  removeRows();
+  renderTable();
+}
+
+function removeRows() {
+  while (table.children[1]) {
+    table.removeChild(table.lastChild);
+  }
 }
 
 function checkFields(event) {
