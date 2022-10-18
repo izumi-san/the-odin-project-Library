@@ -19,30 +19,47 @@
         </tr>
       </table>
     </div>
-    <div class="users-input-container">
-      <h3>Add a new Book!</h3>
-      <form>
-        <input type="text" class="book-name-input" placeholder="Book's Name" />
-        <input
-          type="text"
-          class="author-name-input"
-          placeholder="Author's Name"
-          pattern="[a-zA-Z]*"
-        />
-        <input type="number" class="book-pages-input" placeholder="Pages" />
-        <div class="checkbox-container">
-          <label for="read">Did You Read This Book?</label>
-          <input
-            type="checkbox"
-            id="read"
-            name="read"
-            class="book-read-input"
-          />
+    <button class="button-add" type="button" onclick="showModal()">Adicionar</button>
+    <div class="modal-background">
+      
+      <div class="modal">
+        <div class="users-input-container">
+          <div class="modal-header">
+            <h3>Add a new Book!</h3>
+            <button class="button-close" onclick="closeModal()">X</button>
+          </div>
+          <form>
+            <input
+              type="text"
+              class="book-name-input"
+              placeholder="Book's Name"
+            />
+            <input
+              type="text"
+              class="author-name-input"
+              placeholder="Author's Name"
+              pattern="[a-zA-Z]*"
+            />
+            <input type="number" class="book-pages-input" placeholder="Pages" />
+            <div class="checkbox-container">
+              <label for="read">Did You Read This Book?</label>
+              <input
+                type="checkbox"
+                id="read"
+                name="read"
+                class="book-read-input"
+              />
+            </div>
+            <button
+              class="btn-new-book"
+              type="submit"
+              onclick="checkFields(event)"
+            >
+              Add Book
+            </button>
+          </form>
         </div>
-        <button class="btn-new-book" type="submit" onclick="checkFields(event)">
-          Add Book
-        </button>
-      </form>
+      </div>
     </div>
   </body>
   <script src="index.js"></script>

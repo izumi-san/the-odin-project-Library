@@ -92,7 +92,6 @@ function clearFields() {
 }
 
 function addBookToLibrary(bookName, authorName, pages, read) {
-  // do stuff here
   const newBook = new Book(bookName, authorName, pages, read);
   console.log('Adcionando novo titulo', newBook);
   myLibrary.push(newBook);
@@ -101,3 +100,19 @@ function addBookToLibrary(bookName, authorName, pages, read) {
 }
 
 renderTable();
+
+const modalBackground = document.querySelector('.modal-background');
+
+function showModal() {
+  modalBackground.style.display = 'grid';
+}
+
+function closeModal() {
+  modalBackground.style.display = 'none';
+}
+
+modalBackground.onclick = function (event) {
+  if (event.target == modalBackground) {
+    closeModal();
+  }
+};
